@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class SavingsAccount implements Depositable, Withdrawable {
 
-
-
+    private String id;
+    private String accountNumber;
 
     /**
      * @param amount
