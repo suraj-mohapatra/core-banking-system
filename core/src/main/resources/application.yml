@@ -2,10 +2,14 @@ server:
   port: 8080
   servlet:
     context-path: /cbs
-# --------------------------------------------------------------------------------------------- #
+
 spring:
   application:
     name: service
+
+  output:
+    ansi:
+      enabled: ALWAYS
 
   devtools:
     livereload:
@@ -19,14 +23,32 @@ spring:
       path: /h2-console
 
   datasource:
-    url: jdbc:h2:mem:testdb;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:test;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS core\;CREATE SCHEMA IF NOT EXISTS cbs
     username: root
     password:
     driver-class-name: org.h2.Driver
 
-#  jpa:
-#    database-platform: org.hibernate.dialect.H2Dialect
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    #    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: off
 
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: core
+  #        transaction.jta.platform: changeIt
+  
+#  sql:
+#    init:
+#      mode: always
+#      data-locations: classpath:data.sql.bkp
+#      schema-locations: classpath:schema.sql.bkp
 
+# I can use P6Spy a jdbc proxy for other reasons.
 
-# --------------------------------------------------------------------------------------------- #
+logging:
+  level:
+    root: INFO

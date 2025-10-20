@@ -1,0 +1,11 @@
+-- CREATE SCHEMA IF NOT EXISTS core;
+-- CREATE SCHEMA IF NOT EXISTS cbs;
+
+-- create table MY_TABLE(
+--  NAME varchar(100) not null,
+--  STATUS int
+-- );
+
+-- In H2 (and most SQL databases) unquoted identifiers are converted to uppercase by default.
+
+-- CREATE SCHEMA IF NOT EXISTS abc;

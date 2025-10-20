@@ -1,0 +1,5 @@
+//
+
+-- INSERT INTO core.CUSTOMER (ID, FIRST_NAME) VALUES (1, 'TestFirstName1');
+
+-- INSERT INTO core.CUSTOMER (ID, FIRST_NAME) VALUES (2, 'TestFirstName2');
