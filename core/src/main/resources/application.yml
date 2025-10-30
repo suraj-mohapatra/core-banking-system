@@ -2,6 +2,9 @@ server:
   port: 8080
   servlet:
     context-path: /cbs
+    session:
+      persistent: true
+      timeout: 10m
 
 spring:
   application:

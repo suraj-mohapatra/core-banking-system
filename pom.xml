@@ -123,6 +123,52 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.6.1</version>
+                <executions>
+                    <execution>
+                        <id>enforce-rules</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion>
+                                    <version>[17,25]</version>
+                                </requireJavaVersion>
+                                <requireMavenVersion>
+                                    <version>[3.8,)</version>
+                                </requireMavenVersion>
+                                <banDuplicatePomDependencyVersions/>
+                                <!--<requireEncoding>
+                                    <encoding>UTF-8</encoding>
+                                </requireEncoding>-->
+                                <!--<requireReleaseDeps>
+                                    <onlyWhenRelease>true</onlyWhenRelease>
+                                </requireReleaseDeps>-->
+                                <bannedDependencies>
+                                    <excludes>
+                                        <exclude>commons-logging:commons-logging</exclude>
+                                    </excludes>
+                                    <message>Do not use commons-logging, prefer SLF4J!</message>
+                                </bannedDependencies>
+                                <!--<requirePluginVersions/>-->
+                                <!--<dependencyConvergence/>-->
+                                <!--<banDuplicateClasses/>-->
+                                <!--<requireOS>
+                                    <family>windows</family>
+                                    <message>Build is only supported on Windows systems.</message>
+                                </requireOS>-->
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
