@@ -10,6 +10,9 @@ spring:
   application:
     name: service
 
+  profiles:
+    default: dev
+
   output:
     ansi:
       enabled: ALWAYS
