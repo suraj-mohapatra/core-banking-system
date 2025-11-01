@@ -26,10 +26,10 @@ spring:
       path: /h2-console
 
   datasource:
+    driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:test;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS core\;CREATE SCHEMA IF NOT EXISTS surface
     username: root
     password:
-    driver-class-name: org.h2.Driver
 
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
