@@ -43,7 +43,7 @@
                 <role>developer</role>
                 <role>maintainer</role>
             </roles>
-            <timezone>+1</timezone> <!-- GMT offset -->
+            <timezone>+5:30</timezone> <!-- GMT offset -->
         </developer>
     </developers>
 
@@ -76,6 +76,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
@@ -85,6 +90,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>5.0.1</version>
         </dependency>
 
         <dependency>
@@ -168,6 +179,19 @@
                     </execution>
                 </executions>
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>org.liquibase</groupId>-->
+<!--                <artifactId>liquibase-maven-plugin</artifactId>-->
+<!--                <version>4.27.0</version>                -->
+<!--                <configuration>                    -->
+<!--                    <driver>org.h2.Driver</driver>-->
+<!--                    <url>jdbc:h2:file:./target/h2db/db/carapp</url>-->
+<!--                    <username>carapp</username>-->
+<!--                    <password />-->
+<!--                    <outputChangeLogFile>src/main/resources/liquibase-outputChangeLog.xml</outputChangeLogFile>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
         </plugins>
     </build>

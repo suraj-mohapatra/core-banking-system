@@ -1,0 +1,35 @@
+server:
+  port: 8081
+  servlet:
+    session:
+      persistent: true
+      timeout: 15m
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  application:
+    admin:
+      enabled: true
+      jmx-name: org.springframework.boot:type=Admin,name=SpringApplication
+
+management:
+  endpoint:
+    shutdown:
+      access: unrestricted
+
+  endpoints:
+    web:
+      exposure:
+        include: env,beans,loggers,shutdown
+
+
+
+
+
+
+
+
+

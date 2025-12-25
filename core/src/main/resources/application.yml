@@ -46,7 +46,11 @@ spring:
         format_sql: true
         default_schema: core
   #        transaction.jta.platform: changeIt
-  
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    enabled: true
+
 #  sql:
 #    init:
 #      mode: always
@@ -58,3 +62,14 @@ spring:
 logging:
   level:
     root: INFO
+
+management:
+  server:
+    port: 7070 #access it with http://localhost:7000/actuator
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when_authorized
