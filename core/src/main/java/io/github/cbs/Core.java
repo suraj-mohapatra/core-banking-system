@@ -9,6 +9,7 @@ public class Core {
         SpringApplication.run(Core.class, args);
         System.out.println(
                 """
+                
                 cbs started ------------------------------------------------------------------------------------
                 """
         );
