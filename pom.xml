@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.6</version>
+        <version>3.5.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -21,7 +21,7 @@
 
     <groupId>io.github.cbs</groupId>
     <artifactId>core-banking-system</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>core-banking-system</name>
     <description>Demo project for Spring Boot</description>
     <packaging>pom</packaging>
@@ -54,158 +54,110 @@
         <url>https://github.com/suraj-mohapatra/core-banking-system</url>
     </scm>
 
+    <!--    <repositories>
+            <repository>
+                <id></id>
+                <url></url>
+            </repository>
+        </repositories>
+
+        <distributionManagement>
+            <repository>
+                <id></id>
+                <url></url>
+            </repository>
+            <snapshotRepository>
+                <id></id>
+                <url></url>
+            </snapshotRepository>
+        </distributionManagement>-->
+
     <properties>
         <java.version>21</java.version>
+        <kotlin.version>2.1.0</kotlin.version>
+        <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     </properties>
 
-    <dependencies>
+    <dependencyManagement>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>5.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.8.14</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-    </dependencies>
+    </dependencyManagement>
 
     <build>
-        <plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>3.6.1</version>
+                    <executions>
+                        <execution>
+                            <id>enforce-rules</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <requireJavaVersion>
+                                        <version>[17,21]</version>
+                                    </requireJavaVersion>
+                                    <requireMavenVersion>
+                                        <version>[3.8,)</version>
+                                    </requireMavenVersion>
+                                    <banDuplicatePomDependencyVersions/>
+                                    <!--<requireEncoding>
+                                        <encoding>UTF-8</encoding>
+                                    </requireEncoding>-->
+                                    <!--<requireReleaseDeps>
+                                        <onlyWhenRelease>true</onlyWhenRelease>
+                                    </requireReleaseDeps>-->
+                                    <bannedDependencies>
+                                        <excludes>
+                                            <exclude>commons-logging:commons-logging</exclude>
+                                        </excludes>
+                                        <message>Do not use commons-logging, prefer SLF4J!</message>
+                                    </bannedDependencies>
+                                    <!--<requirePluginVersions/>-->
+                                    <!--<dependencyConvergence/>-->
+                                    <!--<banDuplicateClasses/>-->
+                                    <!--<requireOS>
+                                        <family>windows</family>
+                                        <message>Build is only supported on Windows systems.</message>
+                                    </requireOS>-->
+                                </rules>
+                                <fail>true</fail>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
 
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
+                <!--            <plugin>
+                                <groupId>org.liquibase</groupId>
+                                <artifactId>liquibase-maven-plugin</artifactId>
+                                <version>4.27.0</version>
+                                <configuration>
+                                    <driver>org.h2.Driver</driver>
+                                    <url>jdbc:h2:file:./target/h2db/db/carapp</url>
+                                    <username>carapp</username>
+                                    <password />
+                                    <outputChangeLogFile>src/main/resources/liquibase-outputChangeLog.xml</outputChangeLogFile>
+                                </configuration>
+                            </plugin>-->
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.6.1</version>
-                <executions>
-                    <execution>
-                        <id>enforce-rules</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireJavaVersion>
-                                    <version>[17,25]</version>
-                                </requireJavaVersion>
-                                <requireMavenVersion>
-                                    <version>[3.8,)</version>
-                                </requireMavenVersion>
-                                <banDuplicatePomDependencyVersions/>
-                                <!--<requireEncoding>
-                                    <encoding>UTF-8</encoding>
-                                </requireEncoding>-->
-                                <!--<requireReleaseDeps>
-                                    <onlyWhenRelease>true</onlyWhenRelease>
-                                </requireReleaseDeps>-->
-                                <bannedDependencies>
-                                    <excludes>
-                                        <exclude>commons-logging:commons-logging</exclude>
-                                    </excludes>
-                                    <message>Do not use commons-logging, prefer SLF4J!</message>
-                                </bannedDependencies>
-                                <!--<requirePluginVersions/>-->
-                                <!--<dependencyConvergence/>-->
-                                <!--<banDuplicateClasses/>-->
-                                <!--<requireOS>
-                                    <family>windows</family>
-                                    <message>Build is only supported on Windows systems.</message>
-                                </requireOS>-->
-                            </rules>
-                            <fail>true</fail>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-<!--            <plugin>-->
-<!--                <groupId>org.liquibase</groupId>-->
-<!--                <artifactId>liquibase-maven-plugin</artifactId>-->
-<!--                <version>4.27.0</version>                -->
-<!--                <configuration>                    -->
-<!--                    <driver>org.h2.Driver</driver>-->
-<!--                    <url>jdbc:h2:file:./target/h2db/db/carapp</url>-->
-<!--                    <username>carapp</username>-->
-<!--                    <password />-->
-<!--                    <outputChangeLogFile>src/main/resources/liquibase-outputChangeLog.xml</outputChangeLogFile>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-
-        </plugins>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
