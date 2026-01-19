@@ -14,9 +14,9 @@
     </parent>
 
     <modules>
-        <module>core</module>
-        <!--<module>undecided</module>-->
-        <!--<module>undecided</module>-->
+        <module>api</module>
+        <module>common</module>
+        <module>domain</module>
     </modules>
 
     <groupId>io.github.cbs</groupId>
