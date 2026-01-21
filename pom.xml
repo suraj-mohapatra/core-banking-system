@@ -15,6 +15,7 @@
 
     <modules>
         <module>api</module>
+        <module>service</module>
         <module>common</module>
         <module>domain</module>
     </modules>
@@ -54,32 +55,65 @@
         <url>https://github.com/suraj-mohapatra/core-banking-system</url>
     </scm>
 
-    <!--    <repositories>
-            <repository>
-                <id></id>
-                <url></url>
-            </repository>
-        </repositories>
+    <!--<repositories>
+         <repository>
+             <id></id>
+             <url></url>
+         </repository>
+     </repositories>-->
 
-        <distributionManagement>
-            <repository>
-                <id></id>
-                <url></url>
-            </repository>
-            <snapshotRepository>
-                <id></id>
-                <url></url>
-            </snapshotRepository>
-        </distributionManagement>-->
+    <!--<distributionManagement>
+        <repository>
+            <id></id>
+            <url></url>
+        </repository>
+        <snapshotRepository>
+            <id></id>
+            <url></url>
+        </snapshotRepository>
+    </distributionManagement>-->
 
     <properties>
         <java.version>21</java.version>
-        <kotlin.version>2.1.0</kotlin.version>
-        <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
+        <kotlin.version>2.2.21</kotlin.version> <!--added for kotlin-->
+        <kotlin.compiler.incremental>true</kotlin.compiler.incremental> <!--added for kotlin-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencyManagement>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.active>replace</spring.profiles.active>
+                <spring.profiles.default>dev</spring.profiles.default>
+            </properties>
+        </profile>
+        <!--<profile>
+            <id>prod</id>
+            <properties>
+                <spring.profiles.active>prod</spring.profiles.active>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+        </profile>-->
+    </profiles>
 
+    <dependencyManagement>
+        <!--<dependencies>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.5.23</version>
+            </dependency>
+        </dependencies>-->
     </dependencyManagement>
 
     <build>
@@ -111,7 +145,7 @@
                             <configuration>
                                 <rules>
                                     <requireJavaVersion>
-                                        <version>[17,22]</version>
+                                        <version>[17,22)</version>
                                     </requireJavaVersion>
                                     <requireMavenVersion>
                                         <version>[3.8,)</version>

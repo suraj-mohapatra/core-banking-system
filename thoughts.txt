@@ -2,3 +2,18 @@ package io.github.cbs.domain.entity;
 
 I know I am gonna use jackson for json serialization. but still as of now keeping Serializable
 implemented as it can be helpful in session persistence. I may remove it in future.
+
+how to use these profiles to run different sets of tests (e.g., skipping slow integration tests in the dev profile)?
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-resources-plugin</artifactId>
+    <configuration>
+        <nonFilteredFileExtensions>
+            <nonFilteredFileExtension>p12</nonFilteredFileExtension>
+            <nonFilteredFileExtension>jks</nonFilteredFileExtension>
+            <nonFilteredFileExtension>crt</nonFilteredFileExtension>
+            <nonFilteredFileExtension>pem</nonFilteredFileExtension>
+        </nonFilteredFileExtensions>
+    </configuration>
+</plugin>

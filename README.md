@@ -1,2 +1,7 @@
 # core-banking-system
-cbs for bank  
+About  
+cbs is my draem project
+
+Project Requirement
+
+Project Structure

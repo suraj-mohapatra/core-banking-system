@@ -1,7 +1,6 @@
 package io.github.cbs.web;
 
 import io.github.cbs.domain.entity.Customer;
-import io.github.cbs.service.CustomerService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 

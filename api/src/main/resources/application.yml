@@ -11,7 +11,8 @@ spring:
     name: service
 
   profiles:
-    default: dev
+    #active: @spring.profiles.active@ #replace
+    default: @spring.profiles.default@ #dev
 
   output:
     ansi:
