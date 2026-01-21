@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Tag(name = "Web Controller", description = "Basic API for CBS")
 @RestController
-@RequestMapping("/api")
+@RequestMapping
 public class WebController {
     @Operation(
             summary = "Return a greeting message",

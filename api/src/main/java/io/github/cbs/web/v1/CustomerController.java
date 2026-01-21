@@ -1,4 +1,4 @@
-package io.github.cbs.web;
+package io.github.cbs.web.v1;
 
 import io.github.cbs.domain.entity.Customer;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CustomerController {
 
-    @PostMapping("/createCustomer")
+    @PostMapping("/api/v1/createCustomer")
     public String createCustomer(Customer customer){
 
         //CustomerService customerService = new CustomerService();

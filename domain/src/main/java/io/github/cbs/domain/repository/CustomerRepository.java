@@ -1,4 +1,4 @@
-package io.github.cbs.repository;
+package io.github.cbs.domain.repository;
 
 import io.github.cbs.domain.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;

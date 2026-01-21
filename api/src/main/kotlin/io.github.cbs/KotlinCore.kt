@@ -8,5 +8,11 @@ class KotlinCore
 
 fun main(args: Array<String>) {
     runApplication<KotlinCore>(*args)
-    println("started in KotlinMain")
+    println(
+        """
+                
+                cbs started ------------------------------------------------------------------------------------
+                
+                """.trimIndent()
+    )
 }
