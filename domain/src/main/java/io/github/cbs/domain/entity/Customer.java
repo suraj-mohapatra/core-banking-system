@@ -51,4 +51,7 @@ public class Customer implements Serializable {
 
     @Column(nullable = false, length = 100)
     private String country;
+
 }
+
+// each customer can have one kyc.. i.e 1:N relation

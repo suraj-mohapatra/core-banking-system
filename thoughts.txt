@@ -17,3 +17,31 @@ how to use these profiles to run different sets of tests (e.g., skipping slow in
         </nonFilteredFileExtensions>
     </configuration>
 </plugin>
+
+cdm// ldm //pdm
+
+conceptual, logical, physical
+
+
+customer, account, product
+
+KYC -->
+
+
+jpa//sql alchemy
+
+branch_master
+product_master
+employee_master
+customer_master
+customer_kyc
+customer_nominee
+account_master
+account_balance_history
+loan_account_details
+general_ledger
+transaction_details
+transaction_master
+audit_trail
+denominations_log
+beneficiary_master

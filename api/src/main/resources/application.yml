@@ -24,6 +24,10 @@ spring:
     restart:
       enabled: true
 
+  threads:
+    virtual:
+      enabled: true
+
   h2:
     console:
       enabled: true

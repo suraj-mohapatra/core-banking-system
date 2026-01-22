@@ -20,6 +20,8 @@ public class WebController {
     )
     @GetMapping({"/", ""})
     public String foo() {
+//        System.out.println(Thread.currentThread().isVirtual());
+//        System.out.println(Thread.currentThread().toString());
         return "Hello from CBS!";
     }
 

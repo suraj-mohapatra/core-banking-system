@@ -21,3 +21,6 @@ public class KYCDocument {
     private String description;
 
 }
+
+// kyc documents in India can be POI and POA.
+// this table will store a mapping of kyc document type and a unique code or id

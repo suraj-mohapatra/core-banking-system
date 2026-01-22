@@ -23,7 +23,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: env,beans,loggers,shutdown
+        include: env,beans,loggers,shutdown,threads
 
 
 

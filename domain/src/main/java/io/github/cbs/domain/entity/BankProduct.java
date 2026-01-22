@@ -26,5 +26,4 @@ public class BankProduct {
 
     private BigDecimal interestRate;
 
-
 }
