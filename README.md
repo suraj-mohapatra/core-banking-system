@@ -3,9 +3,9 @@
 ## About :
 cbs is my dream project
 
-## Project Requirement
+## Project Requirement :
 
-## Project Structure
+## Project Structure :
 
 ## Liquibase :
 
