@@ -1,9 +1,10 @@
-package io.github.cbs.domain.entity;
+As software developer we should never be a fanboy of any language, tool, framework.
 
-I know I am gonna use jackson for json serialization. but still as of now keeping Serializable
-implemented as it can be helpful in session persistence. I may remove it in future.
+We are using org.jackson for JSON serialization, still keeping Serializable implemented as it can be helpful in session persistence. I may remove it in future.
 
-how to use these profiles to run different sets of tests (e.g., skipping slow integration tests in the dev profile)?
+How to use Maven profiles to run different sets of tests (e.g., skipping slow integration tests in the dev profile)?
+
+How well can I use below plugin ?
 
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -18,15 +19,7 @@ how to use these profiles to run different sets of tests (e.g., skipping slow in
     </configuration>
 </plugin>
 
-cdm// ldm //pdm
-
-conceptual, logical, physical
-
-
-customer, account, product
-
-KYC -->
-
+learn and apply conceptual, logical, physical data modelling.
 
 jpa//sql alchemy
 

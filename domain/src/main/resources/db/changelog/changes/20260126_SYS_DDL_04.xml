@@ -1,0 +1,30 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="1769979354135-1"
+               author="SURAJ">
+        <createTable schemaName="core"
+                     tableName="gl_account">
+            <column autoIncrement="true"
+                    name="id"
+                    type="INT">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_gl_account"/>
+            </column>
+            <column name="account_number"
+                    type="VARCHAR(255)"/>
+            <column name="account_name"
+                    type="VARCHAR(255)"/>
+            <column name="account_type"
+                    type="VARCHAR(255)"/>
+            <column name="balance"
+                    type="DOUBLE"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

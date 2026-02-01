@@ -1,0 +1,79 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="1769979250401-1"
+               author="SURAJ">
+        <createTable tableName="branch_master">
+            <column autoIncrement="true"
+                    name="id"
+                    type="BIGINT">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_branch_master"/>
+            </column>
+            <column name="branch_code"
+                    type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="branch_name"
+                    type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ifsc_code"
+                    type="VARCHAR(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="micr_code"
+                    type="VARCHAR(9)"/>
+            <column name="branch_type"
+                    type="VARCHAR(20)"/>
+            <column name="address_line1"
+                    type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_line2"
+                    type="VARCHAR(255)"/>
+            <column name="city"
+                    type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state"
+                    type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pincode"
+                    type="VARCHAR(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contact_number"
+                    type="VARCHAR(15)"/>
+            <column name="email_id"
+                    type="VARCHAR(100)"/>
+            <column name="is_active"
+                    type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at"
+                    type="DATETIME"/>
+            <column name="updated_at"
+                    type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1769979250401-2"
+               author="SURAJ">
+        <addUniqueConstraint columnNames="branch_code"
+                             constraintName="uc_branch_master_branch_code"
+                             tableName="branch_master"/>
+    </changeSet>
+    <changeSet id="1769979250401-3"
+               author="SURAJ">
+        <addUniqueConstraint columnNames="ifsc_code"
+                             constraintName="uc_branch_master_ifsc_code"
+                             tableName="branch_master"/>
+    </changeSet>
+
+</databaseChangeLog>

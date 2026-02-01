@@ -1,0 +1,59 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="1769979722783-1"
+               author="SURAJ">
+        <createTable tableName="product_master">
+            <column autoIncrement="true"
+                    name="id"
+                    type="BIGINT">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_product_master"/>
+            </column>
+            <column name="product_code"
+                    type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_name"
+                    type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_type"
+                    type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="interest_rate"
+                    type="DECIMAL(5, 2)"/>
+            <column name="min_balance_requirement"
+                    type="DECIMAL(20, 2)"/>
+            <column name="is_checkbook_allowed"
+                    type="BOOLEAN"/>
+            <column name="is_debit_card_allowed"
+                    type="BOOLEAN"/>
+            <column name="min_tenure_months"
+                    type="INT"/>
+            <column name="max_tenure_months"
+                    type="INT"/>
+            <column name="is_active"
+                    type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at"
+                    type="DATETIME"/>
+            <column name="updated_at"
+                    type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1769979722783-2"
+               author="SURAJ">
+        <addUniqueConstraint columnNames="product_code"
+                             constraintName="uc_product_master_product_code"
+                             tableName="product_master"/>
+    </changeSet>
+
+</databaseChangeLog>

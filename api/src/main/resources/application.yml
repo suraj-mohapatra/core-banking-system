@@ -5,6 +5,9 @@ server:
     session:
       persistent: true
       timeout: 10m
+#  tomcat:
+#    remoteip:
+#      protocol-header: x-forwarded-proto
 
 spring:
   application:
@@ -28,33 +31,33 @@ spring:
     virtual:
       enabled: true
 
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:test;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS core\;CREATE SCHEMA IF NOT EXISTS surface
+    url: jdbc:mysql://localhost:3306/core?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
-    password:
+    password: Rooteshwar@12
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    #    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+        #defer-datasource-initialization: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     show-sql: off
 
     properties:
       hibernate:
         format_sql: true
         default_schema: core
-  #        transaction.jta.platform: changeIt
+        #transaction.jta.platform: changeIt
+        #max_fetch_depth: 1
 
   liquibase:
-    change-log: classpath:/db/changelog/db.changelog-master.yaml
     enabled: true
+    #contexts: dev
+    database-change-log-table: cbs_schema_history
+    database-change-log-lock-table:  cbs_schema_lock
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    default-schema: core
+
 
 #  sql:
 #    init:
@@ -70,7 +73,7 @@ logging:
 
 management:
   server:
-    port: 7070 #access it with http://localhost:7000/actuator
+    port: 7070 # access it with http://localhost:7000/actuator
   endpoints:
     web:
       exposure:
@@ -78,3 +81,16 @@ management:
   endpoint:
     health:
       show-details: when_authorized
+#  info:
+#    git:
+#      enabled: true
+#      mode: full
+
+debug: false
+
+info:
+  app:
+    name: core-backing-solution
+    description: financial solution for banking
+    version: 1.0.0
+
