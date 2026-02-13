@@ -68,5 +68,5 @@ The common module is a shared library that contains utility classes, constants, 
 ## Developers
 
 <img src=".\common\src\main\resources\asssets\img\uglyeagle2.0.png" 
-width="20%" alt="uglyeagle" 
-style="float:right;"/>
+     width="20%" alt="uglyeagle" 
+     style="float:right; pointer-events: none;"/>
