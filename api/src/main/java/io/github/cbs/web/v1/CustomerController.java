@@ -12,7 +12,7 @@ public class CustomerController {
     public String createCustomer(Customer customer){
 
         //CustomerService customerService = new CustomerService();
-        return "customer cteated";
+        return "customer created";
     }
 
 }

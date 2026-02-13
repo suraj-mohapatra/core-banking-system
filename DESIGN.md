@@ -38,3 +38,29 @@ transaction_master
 audit_trail
 denominations_log
 beneficiary_master
+
+Java -- domain entities, infrastructure securities
+
+Kotlin -- service layer, common, dto
+
+in the service module I have to add spring-doc-openapi-maven-plugin
+
+Spring Security (VERY COMMON ISSUE)
+
+If you use Spring Security, you MUST allow /cbs paths:
+
+@Bean
+SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+http
+.csrf(csrf -> csrf.disable())
+.authorizeHttpRequests(auth -> auth
+.requestMatchers(
+"/cbs/swagger-ui/**",
+"/cbs/v3/api-docs/**"
+).permitAll()
+.anyRequest().authenticated()
+);
+return http.build();
+}
+
+disable swagger in prod

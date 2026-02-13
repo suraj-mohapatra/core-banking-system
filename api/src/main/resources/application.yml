@@ -67,6 +67,11 @@ spring:
 
 # I can use P6Spy a jdbc proxy for other reasons.
 
+  security:
+    user:
+      name: suraj
+      password: suraj
+
 logging:
   level:
     root: INFO
