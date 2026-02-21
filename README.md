@@ -33,7 +33,7 @@ All Liquibase changesets must follow the naming convention below to maintain con
 
 **Format**
 
-YYYYMMDD*{DEVELOPER}*{SQL*TYPE}*{SEQUENCE}
+YYYYMMDD_DEVELOPER_SQLTYPE_SEQUENCE
 
 **Details**
 
