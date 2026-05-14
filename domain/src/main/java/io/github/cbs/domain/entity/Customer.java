@@ -42,7 +42,7 @@ public class Customer implements Serializable {
 
     @Column(nullable = false, length = 100)
     private String city;
-    
+
     @Column(nullable = false, length = 100)
     private String state;
 
@@ -51,6 +51,12 @@ public class Customer implements Serializable {
 
     @Column(nullable = false, length = 100)
     private String country;
+
+//    @JsonIgnore
+//    private String password;
+
+//    @Transient
+//    private String tempValue;
 
     @Override
     public final boolean equals(Object object) {

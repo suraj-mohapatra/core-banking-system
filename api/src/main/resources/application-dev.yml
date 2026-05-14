@@ -10,6 +10,12 @@ spring:
     activate:
       on-profile: dev
 
+#  devtools:
+#    livereload:
+#      enabled: true
+#    restart:
+#      enabled: true
+
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration

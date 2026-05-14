@@ -21,12 +21,6 @@ spring:
     ansi:
       enabled: ALWAYS
 
-  devtools:
-    livereload:
-      enabled: true
-    restart:
-      enabled: true
-
   threads:
     virtual:
       enabled: true

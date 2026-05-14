@@ -24,13 +24,13 @@
 
         <dependency>
             <groupId>io.github.cbs</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>service</artifactId>
             <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.cbs</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>common</artifactId>
             <version>1.0.0</version>
         </dependency>
 
@@ -88,11 +88,11 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
