@@ -40,7 +40,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     #generate-ddl: #it is insignificant as the above one takes care
 
 management:

@@ -1,5 +1,7 @@
 package io.github.cbs.domain.entity;
 
+import io.github.cbs.domain.enums.BranchStatus;
+import io.github.cbs.domain.enums.BranchType;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
@@ -25,8 +27,9 @@ public class BranchMaster {
     @Column(name = "micr_code", length = 9)
     private String micrCode;
 
-    @Column(name = "branch_type", length = 20)
-    private String branchType; // e.g., RURAL, SEMI-URBAN, URBAN, METRO
+    @Enumerated(EnumType.STRING)
+    @Column(name = "branch_type", nullable = false, length = 20)
+    private BranchType branchType; // e.g., RURAL, SEMI-URBAN, URBAN, METRO
 
     @Column(name = "address_line1", nullable = false)
     private String addressLine1;
@@ -49,8 +52,9 @@ public class BranchMaster {
     @Column(name = "email_id", length = 100)
     private String emailId;
 
-    @Column(name = "is_active", nullable = false)
-    private Boolean isActive = true;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private BranchStatus status;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;

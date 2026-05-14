@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd">
+
+    <changeSet id="20260515-SYS-DML-01" author="SURAJ">
+        <loadData
+                file="db/changelog/data/branch_master.csv"
+                tableName="branch_master"
+                schemaName="core"
+                separator=","
+                encoding="UTF-8">
+
+            <column name="branch_code" type="STRING"/>
+            <column name="branch_name" type="STRING"/>
+            <column name="ifsc_code" type="STRING"/>
+            <column name="micr_code" type="STRING"/>
+            <column name="branch_type" type="STRING"/>
+            <column name="address_line1" type="STRING"/>
+            <column name="address_line2" type="STRING"/>
+            <column name="city" type="STRING"/>
+            <column name="state" type="STRING"/>
+            <column name="pincode" type="STRING"/>
+            <column name="contact_number" type="STRING"/>
+            <column name="email_id" type="STRING"/>
+            <column name="status" type="STRING"/>
+            <column name="created_at" type="DATETIME"/>
+            <column name="updated_at" type="DATETIME"/>
+
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>
