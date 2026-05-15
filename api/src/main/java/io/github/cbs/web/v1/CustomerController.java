@@ -25,7 +25,6 @@ public class CustomerController {
 
         CustomerRes customer = customerService.createCustomer(req);
 
-
         ApiResponse<CustomerRes> response =
                 ApiResponse.<CustomerRes>builder()
                         .success(true)

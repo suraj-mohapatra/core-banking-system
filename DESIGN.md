@@ -64,3 +64,6 @@ return http.build();
 }
 
 disable swagger in prod
+
+I need to integrate reporting engine to the cbs. is jasperstudio a good choice
+jasperstudio + itext pdf or openpdf.  or eclipse birt.. whichever is safe and works as intended I should use.
