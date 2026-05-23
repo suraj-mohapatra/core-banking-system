@@ -173,12 +173,12 @@
                 </configuration>
             </plugin>
 
-           <!-- <plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>io.github.cbs.Core</mainClass>
-                    &lt;!&ndash;<mainClass>io.github.cbs.KotlinCoreKt</mainClass>&ndash;&gt;
+                    <!--<mainClass>io.github.cbs.KotlinCoreKt</mainClass>-->
                     <jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments>
                     <excludes>
                         <exclude>
@@ -204,31 +204,30 @@
             </plugin>
 
 
--->
-           <!-- <plugin>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-maven-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <apiDocsUrl>http://localhost:8081/v3/api-docs.yaml</apiDocsUrl>
-                    <outputFileName>openapi.yaml</outputFileName>
-                    <outputDir>${project.build.directory}/docs</outputDir>
-                    <skip>false</skip>
-                    <failOnError>true</failOnError>
-                    <headers>
-                        <header1key>header1value</header1key>
-                        <header2key>header2value</header2key>
-                    </headers>
-                </configuration>
-            </plugin>-->
+            <!-- <plugin>
+                 <groupId>org.springdoc</groupId>
+                 <artifactId>springdoc-openapi-maven-plugin</artifactId>
+                 <version>1.5</version>
+                 <executions>
+                     <execution>
+                         <phase>integration-test</phase>
+                         <goals>
+                             <goal>generate</goal>
+                         </goals>
+                     </execution>
+                 </executions>
+                 <configuration>
+                     <apiDocsUrl>http://localhost:8081/v3/api-docs.yaml</apiDocsUrl>
+                     <outputFileName>openapi.yaml</outputFileName>
+                     <outputDir>${project.build.directory}/docs</outputDir>
+                     <skip>false</skip>
+                     <failOnError>true</failOnError>
+                     <headers>
+                         <header1key>header1value</header1key>
+                         <header2key>header2value</header2key>
+                     </headers>
+                 </configuration>
+             </plugin>-->
 
 
         </plugins>
