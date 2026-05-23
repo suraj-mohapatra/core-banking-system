@@ -65,8 +65,16 @@ The api module serves as the entry point for external clients to interact with t
 
 The common module is a shared library that contains utility classes, constants, and common functionalities that are used across multiple modules in the core banking system. It serves as a central repository for reusable code and helps to avoid duplication of logic across different parts of the application.
 
+## [4] Note to self:
+
+Refer [DESIGN.md](DESIGN.md) for design decisions and implementation details.
+
 ## Developers
 
 <img src=".\common\src\main\resources\asssets\img\uglyeagle2.0.png" 
      width="20%" alt="uglyeagle" 
      style="float:right; pointer-events: none;"/>
+
+<marquee scrollamount="15">
+  Suraj Mohapatra
+</marquee>
