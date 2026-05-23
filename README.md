@@ -74,7 +74,3 @@ Refer [DESIGN.md](DESIGN.md) for design decisions and implementation details.
 <img src=".\common\src\main\resources\asssets\img\uglyeagle2.0.png" 
      width="20%" alt="uglyeagle" 
      style="float:right; pointer-events: none;"/>
-
-<marquee scrollamount="15">
-  Suraj Mohapatra
-</marquee>
