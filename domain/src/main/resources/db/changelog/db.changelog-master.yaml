@@ -17,3 +17,5 @@ databaseChangeLog:
       file: db/changelog/changes/20260126_SYS_DDL_08.xml
   - include:
       file: db/changelog/changes/20260515_SYS_DML_01.xml
+  - include:
+      file: db/changelog/changes/20260525_SYS_DDL_01.xml

@@ -1,13 +1,13 @@
 package io.github.cbs.domain.enums;
 
-public enum ServiceCodeEnum {
+public enum ServiceCode {
 
     ACC_SERVICE("User Service"),
     DEP_SERVICE("Order Service");
 
     private final String description;
 
-    ServiceCodeEnum(String description) {
+    ServiceCode(String description) {
         this.description = description;
     }
 

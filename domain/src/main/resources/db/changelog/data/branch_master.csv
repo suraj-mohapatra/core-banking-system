@@ -1,16 +1,16 @@
 branch_code,branch_name,ifsc_code,micr_code,branch_type,address_line1,address_line2,city,state,pincode,contact_number,email_id,status,created_at,updated_at
-B001,Main Branch,ABCD0000001,123456789,METRO,MG Road,,Bengaluru,Karnataka,560001,9876543210,main@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B002,Park Street Branch,ABCD0000002,987654321,URBAN,Park Street,,Kolkata,West Bengal,700001,9123456780,kolkata@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B003,Connaught Place Branch,ABCD0000003,111222333,METRO,Connaught Place,,New Delhi,Delhi,110001,9012345671,delhi@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B004,Marine Drive Branch,ABCD0000004,222333444,METRO,Marine Drive,,Mumbai,Maharashtra,400002,9012345672,mumbai@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B005,T Nagar Branch,ABCD0000005,333444555,URBAN,T Nagar,,Chennai,Tamil Nadu,600017,9012345673,chennai@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B006,Banjara Hills Branch,ABCD0000006,444555666,URBAN,Banjara Hills,,Hyderabad,Telangana,500034,9012345674,hyderabad@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B007,Hazratganj Branch,ABCD0000007,555666777,SEMI_URBAN,Hazratganj,,Lucknow,Uttar Pradesh,226001,9012345675,lucknow@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B008,MG Road Pune Branch,ABCD0000008,666777888,URBAN,MG Road,,Pune,Maharashtra,411001,9012345676,pune@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B009,Gandhinagar Branch,ABCD0000009,777888999,URBAN,Sector 21,,Gandhinagar,Gujarat,382021,9012345677,gandhinagar@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B010,Patna Main Branch,ABCD0000010,888999000,SEMI_URBAN,Fraser Road,,Patna,Bihar,800001,9012345678,patna@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B011,Bhubaneswar Branch,ABCD0000011,999000111,URBAN,Janpath Road,,Bhubaneswar,Odisha,751001,9012345679,bhubaneswar@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B012,Jaipur Pink City Branch,ABCD0000012,101112131,RURAL,MI Road,,Jaipur,Rajasthan,302001,9012345680,jaipur@bank.com,ACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B013,Shillong Branch,ABCD0000013,121314151,URBAN,Police Bazaar,,Shillong,Meghalaya,793001,9012345681,shillong@bank.com,INACTIVE,2026-05-15T10:00:00,2026-05-15T10:00:00
-B014,Agra Cantonment Branch,ABCD0000014,131415161,SEMI_URBAN,Cantonment Road,,Agra,Uttar Pradesh,282001,9012345682,agra@bank.com,SUSPENDED,2026-05-15T10:00:00,2026-05-15T10:00:00
-B015,Old Town Branch,ABCD0000015,141516171,RURAL,Temple Street,,Varanasi,Uttar Pradesh,221001,9012345683,varanasi@bank.com,CLOSED,2026-05-15T10:00:00,2026-05-15T10:00:00
+B001,Main Branch,ABCD0000001,123456789,Metro,MG Road,,Bengaluru,Karnataka,560001,9876543210,main@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B002,Park Street Branch,ABCD0000002,987654321,Urban,Park Street,,Kolkata,West Bengal,700001,9123456780,kolkata@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B003,Connaught Place Branch,ABCD0000003,111222333,Metro,Connaught Place,,New Delhi,Delhi,110001,9012345671,delhi@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B004,Marine Drive Branch,ABCD0000004,222333444,Metro,Marine Drive,,Mumbai,Maharashtra,400002,9012345672,mumbai@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B005,T Nagar Branch,ABCD0000005,333444555,Urban,T Nagar,,Chennai,Tamil Nadu,600017,9012345673,chennai@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B006,Banjara Hills Branch,ABCD0000006,444555666,Urban,Banjara Hills,,Hyderabad,Telangana,500034,9012345674,hyderabad@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B007,Hazratganj Branch,ABCD0000007,555666777,Semi Urban,Hazratganj,,Lucknow,Uttar Pradesh,226001,9012345675,lucknow@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B008,MG Road Pune Branch,ABCD0000008,666777888,Urban,MG Road,,Pune,Maharashtra,411001,9012345676,pune@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B009,Gandhinagar Branch,ABCD0000009,777888999,Urban,Sector 21,,Gandhinagar,Gujarat,382021,9012345677,gandhinagar@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B010,Patna Main Branch,ABCD0000010,888999000,Semi Urban,Fraser Road,,Patna,Bihar,800001,9012345678,patna@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B011,Bhubaneswar Branch,ABCD0000011,999000111,Urban,Janpath Road,,Bhubaneswar,Odisha,751001,9012345679,bhubaneswar@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B012,Jaipur Pink City Branch,ABCD0000012,101112131,Rural,MI Road,,Jaipur,Rajasthan,302001,9012345680,jaipur@bank.com,Active,2026-05-15T10:00:00,2026-05-15T10:00:00
+B013,Shillong Branch,ABCD0000013,121314151,Urban,Police Bazaar,,Shillong,Meghalaya,793001,9012345681,shillong@bank.com,Inactive,2026-05-15T10:00:00,2026-05-15T10:00:00
+B014,Agra Cantonment Branch,ABCD0000014,131415161,Semi Urban,Cantonment Road,,Agra,Uttar Pradesh,282001,9012345682,agra@bank.com,Suspended,2026-05-15T10:00:00,2026-05-15T10:00:00
+B015,Old Town Branch,ABCD0000015,141516171,Rural,Temple Street,,Varanasi,Uttar Pradesh,221001,9012345683,varanasi@bank.com,Closed,2026-05-15T10:00:00,2026-05-15T10:00:00

@@ -70,7 +70,14 @@ learn and apply conceptual, logical, physical data modelling.
 
 jpa/ sql alchemy
 
-### Relational tables:
+### Rule Engine
+
+Do I need a rule engine for the core banking system? If so, which one should I choose? Drools is a popular choice for Java applications, but I should evaluate it against my specific requirements and constraints.
+
+Drools → RETE-based inference engine  
+Corticon → decision-table/dependency-driven rule execution engine
+
+### Relational Tables:
 
 Planning below tables for the core banking system: Will create a schema document and refer to it for details.
 
@@ -169,10 +176,10 @@ Current situation:
 | Check /actuator/health   |
 +--------------------------+
          |
-     healthy?
-      /   \
-    yes   no
-    /       \
+      healthy?
+       /   \
+     yes    no
+     /       \
  success   rollback
 ```
 
