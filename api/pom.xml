@@ -105,6 +105,13 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.10</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -158,12 +165,12 @@
                 <artifactId>maven-enforcer-plugin</artifactId>
             </plugin>
 
-            <plugin>
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>io.github.cbs.Core</mainClass>
-                    <!--<mainClass>io.github.cbs.KotlinCoreKt</mainClass>-->
+                    &lt;!&ndash;<mainClass>io.github.cbs.KotlinCoreKt</mainClass>&ndash;&gt;
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -171,7 +178,7 @@
                         </exclude>
                     </excludes>
                 </configuration>
-            </plugin>
+            </plugin>-->
 
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -204,31 +211,146 @@
             </plugin>
 
 
-            <!-- <plugin>
-                 <groupId>org.springdoc</groupId>
-                 <artifactId>springdoc-openapi-maven-plugin</artifactId>
-                 <version>1.5</version>
-                 <executions>
-                     <execution>
-                         <phase>integration-test</phase>
-                         <goals>
-                             <goal>generate</goal>
-                         </goals>
-                     </execution>
-                 </executions>
-                 <configuration>
-                     <apiDocsUrl>http://localhost:8081/v3/api-docs.yaml</apiDocsUrl>
-                     <outputFileName>openapi.yaml</outputFileName>
-                     <outputDir>${project.build.directory}/docs</outputDir>
-                     <skip>false</skip>
-                     <failOnError>true</failOnError>
-                     <headers>
-                         <header1key>header1value</header1key>
-                         <header2key>header2value</header2key>
-                     </headers>
-                 </configuration>
-             </plugin>-->
+            <plugin>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-maven-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <apiDocsUrl>http://localhost:8081/cbs/v3/api-docs</apiDocsUrl>
+                    <outputFileName>openapi.json</outputFileName>
+                    <outputDir>${project.build.directory}/docs</outputDir>
+                    <skip>false</skip>
+                    <failOnError>true</failOnError>
+                    <!--<headers>
+                        <header1key>header1value</header1key>
+                        <header2key>header2value</header2key>
+                    </headers>-->
+                </configuration>
+            </plugin>
 
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>7.15.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-java-client</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.build.directory}/docs/openapi.json</inputSpec>
+                            <generatorName>java</generatorName>
+                            <output>${project.build.directory}/generated-clients/java</output>
+                            <apiPackage>io.github.cbs.client.api</apiPackage>
+                            <modelPackage>io.github.cbs.client.model</modelPackage>
+                            <invokerPackage>io.github.cbs.client</invokerPackage>
+                            <!--<configOptions>
+                                <dateLibrary>java8</dateLibrary>
+                                <serializationLibrary>jackson</serializationLibrary>
+                                <library>webclient</library>
+                                <useJakartaEe>true</useJakartaEe>
+                            </configOptions>-->
+                            <configOptions>
+                                <dateLibrary>java8</dateLibrary>
+                                <serializationLibrary>jackson</serializationLibrary>
+                                <library>native</library>
+                                <useJakartaEe>true</useJakartaEe>
+                            </configOptions>
+
+                            <additionalProperties>
+                                <groupId>io.github.cbs</groupId>
+                                <artifactId>cbs-java-client</artifactId>
+                                <artifactVersion>1.0.0</artifactVersion>
+                            </additionalProperties>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.7.1</version>
+
+                <executions>
+                    <execution>
+                        <id>package-generated-client</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>cbs-java-client</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>client-assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <!--<execution>
+                        <id>build-generated-client</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <workingDirectory>
+                                ${project.build.directory}/generated-clients/java
+                            </workingDirectory>
+                            <executable>mvn</executable>
+                            <arguments>
+                                <argument>clean</argument>
+                                <argument>package</argument>
+                                <argument>-DskipTests</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>-->
+                </executions>
+            </plugin>
+
+            <!--<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-generated-client-jar</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>
+                                        ${project.build.directory}/generated-clients/java/target/cbs-java-client-1.0.0.jar
+                                    </file>
+                                    <type>jar</type>
+                                    <classifier>client</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
 
         </plugins>
     </build>
