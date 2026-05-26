@@ -274,6 +274,58 @@
                             </additionalProperties>
                         </configuration>
                     </execution>
+
+                    <execution>
+                        <id>generate-typescript-client</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.build.directory}/docs/openapi.json</inputSpec>
+                            <generatorName>typescript-fetch</generatorName>
+                            <!--<generatorName>typescript-axios</generatorName>-->
+                            <output>${project.build.directory}/generated-clients/typescript-fetch</output>
+                            <!--<output>${project.build.directory}/generated-clients/typescript-axios</output>-->
+                            <additionalProperties>
+                                <npmName>@cbs/client</npmName>
+                                <npmVersion>1.0.0</npmVersion>
+                                <supportsES6>true</supportsES6>
+                                <typescriptThreePlus>true</typescriptThreePlus>
+                            </additionalProperties>
+                        </configuration>
+                    </execution>
+
+                    <!--<execution>
+                        <id>generate-go-client</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.build.directory}/docs/openapi.json</inputSpec>
+                            <generatorName>go</generatorName>
+                            <output>${project.build.directory}/generated-clients/go</output>
+                            <packageName>cbsclient</packageName>
+                        </configuration>
+                    </execution>-->
+
+                    <!--<execution>
+                        <id>generate-rust-client</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.build.directory}/docs/openapi.json</inputSpec>
+                            <generatorName>rust</generatorName>
+                            <output>${project.build.directory}/generated-clients/rust</output>
+                            <additionalProperties>
+                                <packageName>cbs-client</packageName>
+                                <packageVersion>1.0.0</packageVersion>
+                            </additionalProperties>
+                        </configuration>
+                    </execution>-->
                 </executions>
             </plugin>
 
