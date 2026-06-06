@@ -46,6 +46,19 @@
             </roles>
             <timezone>+5:30</timezone> <!-- GMT offset -->
         </developer>
+        <developer>
+            <id>uglyeagle</id>
+            <name>Sarang Sambhare</name>
+            <email>sarangsambhare8073@gmail.com</email>
+            <url></url>
+            <organization>N/A</organization>
+            <organizationUrl>N/A</organizationUrl>
+            <roles>
+                <role>developer</role>
+                <role>maintainer</role>
+            </roles>
+            <timezone>+5:30</timezone> <!-- GMT offset -->
+        </developer>
     </developers>
 
     <scm>
