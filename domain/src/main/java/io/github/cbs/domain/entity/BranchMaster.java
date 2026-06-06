@@ -7,7 +7,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "branch_master")
+@Table(name = "branch_master", schema = "core")
 @Data
 public class BranchMaster {
 

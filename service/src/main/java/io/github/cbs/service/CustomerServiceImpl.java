@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import io.github.cbs.dto.req.CustomerReq;
 import io.github.cbs.dto.res.CustomerRes;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -37,5 +39,42 @@ public class CustomerServiceImpl implements CustomerService {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * @param customerId
+     * @param request
+     * @return
+     */
+    @Override
+    public CustomerRes updateCustomer(Long customerId, CustomerReq request) {
+        return null;
+    }
+
+    /**
+     * @param customerId
+     * @return
+     */
+    @Override
+    public CustomerRes getCustomerById(Long customerId) {
+        return null;
+    }
+
+    /**
+     * @param request
+     * @return
+     */
+    @Override
+    public List<CustomerRes> searchCustomers(CustomerReq request) {
+        return List.of();
+    }
+
+    /**
+     * @param customerId
+     */
+    @Override
+    public void deactivateCustomer(Long customerId) {
+
+    }
+
 
 }

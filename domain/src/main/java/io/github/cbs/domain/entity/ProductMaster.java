@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * Defines the parameters for different banking products (Savings, Current, Loans).
  */
 @Entity
-@Table(name = "product_master")
+@Table(name = "product_master", schema = "core")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
