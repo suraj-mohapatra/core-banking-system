@@ -115,6 +115,24 @@
                 </configuration>
             </plugin>-->
 
+            <!--<plugin>
+                <groupId>abgnpr.plantumlgenerator</groupId>
+                <artifactId>plantuml-generator-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    &lt;!&ndash; Optional: Customize input/output &ndash;&gt;
+                    <inputDir>${project.build.sourceDirectory}</inputDir>
+                    <outputFile>${project.basedir}/diagrams/${project.name}-uml-diagram.puml</outputFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+
         </plugins>
     </build>
 
