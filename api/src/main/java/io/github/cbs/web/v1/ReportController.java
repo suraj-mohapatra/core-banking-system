@@ -9,35 +9,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-
 @RestController
 @RequestMapping("/reports")
 @RequiredArgsConstructor
 public class ReportController {
 
-    private ReportService reportService;
-    private DataSource dataSource;
+    private final ReportService reportService;
 
     @GetMapping("/branches")
     public ResponseEntity<byte[]> generateBranchesReport() {
 
-        try (Connection connection = dataSource.getConnection()) {
+        byte[] pdfBytes = reportService.generateBranchesReport();
 
-            byte[] pdfBytes = reportService.generateBranchesReport(connection);
-
-            return ResponseEntity.ok()
-                    .header(
-                            HttpHeaders.CONTENT_DISPOSITION,
-                            "inline; filename=branches-report.pdf"
-                    )
-                    .contentType(MediaType.APPLICATION_PDF)
-                    .body(pdfBytes);
-
-        } catch (Exception e) {
-            throw new RuntimeException(
-                    "Failed to generate branches report", e);
-        }
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION,
+                        "inline; filename=branches-report.pdf")
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(pdfBytes);
     }
 }

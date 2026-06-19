@@ -1,5 +1,6 @@
 package io.github.cbs.service;
 
+import lombok.RequiredArgsConstructor;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -11,17 +12,23 @@ import org.springframework.stereotype.Service;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.sql.*;
+import javax.sql.DataSource;
+import java.sql.Connection;
 
 
 @Service
+@RequiredArgsConstructor
 public class ReportService {
 
-    public byte[] generateBranchesReport(Connection connection) {
+    private final DataSource dataSource;
 
-        try (InputStream inputStream =
-                     new ClassPathResource("reports/branches.jasper").getInputStream()) {
+    public byte[] generateBranchesReport() {
 
+        try (
+                Connection connection = dataSource.getConnection();
+                InputStream inputStream =
+                        new ClassPathResource("reports/branches.jasper").getInputStream()
+        ) {
             JasperReport jasperReport =
                     (JasperReport) JRLoader.loadObject(inputStream);
 
