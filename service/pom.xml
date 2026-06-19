@@ -98,6 +98,15 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>reports/**/*.jrxml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
@@ -158,6 +167,28 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <groupId>com.pro-crafting.tools</groupId>
+                <artifactId>jasperreports-plugin</artifactId>
+                <version>3.5.6</version>
+
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>jasper</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <sourceDirectory>src/main/resources/reports</sourceDirectory>
+                    <outputDirectory>${project.build.outputDirectory}/reports</outputDirectory>
+                    <outputFileExt>.jasper</outputFileExt>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
