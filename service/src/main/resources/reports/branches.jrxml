@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="branches" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0faced1d-875a-4791-9114-6f23dbed73f5">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="core-mysql"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM core.branch_master]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="branch_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="branch_code"/>
+		<property name="com.jaspersoft.studio.field.label" value="branch_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="branch_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="branch_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="branch_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="ifsc_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ifsc_code"/>
+		<property name="com.jaspersoft.studio.field.label" value="ifsc_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="micr_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="micr_code"/>
+		<property name="com.jaspersoft.studio.field.label" value="micr_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="branch_type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="branch_type"/>
+		<property name="com.jaspersoft.studio.field.label" value="branch_type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="address_line1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="address_line1"/>
+		<property name="com.jaspersoft.studio.field.label" value="address_line1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="address_line2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="address_line2"/>
+		<property name="com.jaspersoft.studio.field.label" value="address_line2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="city" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="city"/>
+		<property name="com.jaspersoft.studio.field.label" value="city"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="state" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="state"/>
+		<property name="com.jaspersoft.studio.field.label" value="state"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="pincode" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pincode"/>
+		<property name="com.jaspersoft.studio.field.label" value="pincode"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="contact_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="contact_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="contact_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="email_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="email_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="created_at" class="java.time.LocalDateTime">
+		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<field name="updated_at" class="java.time.LocalDateTime">
+		<property name="com.jaspersoft.studio.field.name" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="updated_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="branch_master"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="-1" width="802" height="40" forecolor="#D4AF37" backcolor="#0B1F3A" uuid="67ee6ad4-3a1c-414a-b309-36b2587b0b10"/>
+				<box>
+					<topPen lineColor="#0B1F3A"/>
+					<leftPen lineColor="#0B1F3A"/>
+					<bottomPen lineWidth="2.0" lineStyle="Double" lineColor="#D4AF37"/>
+					<rightPen lineColor="#0B1F3A"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[CUSTOMER DETAILS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="80" height="35" forecolor="#FFFFFF" backcolor="#123C69" uuid="05a327df-6a5c-4d64-b79d-db6f3f1b82df">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4552659-6e30-4de9-973b-35b8b1842b5c"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5" lineColor="#D4AF37"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D4AF37"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#D4AF37"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D4AF37"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#D4AF37"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUSTOMER_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="0" width="120" height="35" forecolor="#FFFFFF" backcolor="#123C69" uuid="9a050caa-f1b2-4ec7-9508-5b1be6fdf640">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4552659-6e30-4de9-973b-35b8b1842b5c"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5" lineColor="#D4AF37"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D4AF37"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#D4AF37"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D4AF37"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#D4AF37"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BRANCH]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="80" y="0" width="120" height="18" backcolor="#F7FAFC" uuid="0da6f629-cc87-4960-b20a-b036baf1b701">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="18ba5e41-5cfd-4b26-b8d9-9eeda92c9cc1"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#D9E2EC"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{branch_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="80" height="18" backcolor="#F7FAFC" uuid="80f4d0d9-4ad0-4ff1-b804-af22f56b1ca6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8773f1d9-9f80-442b-ac67-ca35980381bf"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#D9E2EC"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="45" splitType="Stretch">
+			<rectangle radius="9">
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="45" backcolor="#EAF2F8" uuid="7578489f-b015-46e3-a383-86ca255a0aec"/>
+				<graphicElement>
+					<pen lineStyle="Solid" lineColor="#123C69"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="46" splitType="Stretch"/>
+	</summary>
+</jasperReport>
