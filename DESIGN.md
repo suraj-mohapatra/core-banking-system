@@ -186,3 +186,11 @@ Current situation:
 ### Container
 
 Docker
+
+plugins to explore,
+owasp-dependency-check-maven
+checkstyle-maven-plugin
+pmd-maven-plugin
+spotbugs-maven-plugin
+dockerfile-maven-plugin
+jib-maven-plugin
