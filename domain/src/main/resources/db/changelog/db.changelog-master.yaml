@@ -1,21 +1,25 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changes/20260126_SYS_DDL_01.xml
+      file: db/changelog/changes/20260126_SYS_DDL_customer_01.xml
   - include:
-      file: db/changelog/changes/20260126_SYS_DDL_02.xml
+      file: db/changelog/changes/20260126_SYS_DDL_bank_product_01.xml
   - include:
-      file: db/changelog/changes/20260126_SYS_DDL_03.xml
+      file: db/changelog/changes/20260126_SYS_DDL_branch_master_01.xml
   - include:
-      file: db/changelog/changes/20260126_SYS_DDL_04.xml
+      file: db/changelog/changes/20260126_SYS_DDL_gl_account_01.xml
   - include:
-      file: db/changelog/changes/20260126_SYS_DDL_05.xml
+      file: db/changelog/changes/20260126_SYS_DDL_kyc_document_01.xml
   - include:
-      file: db/changelog/changes/20260126_SYS_DDL_06.xml
+      file: db/changelog/changes/20260126_SYS_DDL_loan_account_01.xml
   - include:
-      file: db/changelog/changes/20260126_SYS_DDL_07.xml
+      file: db/changelog/changes/20260126_SYS_DDL_product_master_01.xml
   - include:
-      file: db/changelog/changes/20260126_SYS_DDL_08.xml
+      file: db/changelog/changes/20260126_SYS_DDL_savings_account_01.xml
+  - include:
+      file: db/changelog/changes/20260525_SYS_DDL_employee_01.xml
+#  -----------------------------------------------------------------------------
+#  -----------------------------------------------------------------------------
   - include:
       file: db/changelog/changes/20260515_SYS_DML_01.xml
   - include:
-      file: db/changelog/changes/20260525_SYS_DDL_01.xml
+      file: db/changelog/changes/20260831_SYS_DML_kyc_document_01.xml

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd">
+
+    <changeSet id="20260831-SYS-DML-KYC-DOCUMENT-01" author="SURAJ">
+        <loadData
+            file="db/changelog/data/kyc_document.csv"
+            tableName="kyc_document"
+            schemaName="core"
+            separator=","
+            encoding="UTF-8">
+
+            <column name="document_code" type="STRING" />
+            <column name="document_type" type="STRING" />
+            <column
+                name="name" type="STRING" />
+            <column name="description" type="STRING" />
+            <column
+                name="is_active" type="BOOLEAN" />
+            <column name="is_mandatory" type="BOOLEAN" />
+            <column
+                name="priority" type="NUMERIC" />
+            <column name="validity_period" type="NUMERIC" />
+            <column
+                name="allowed_file_formats" type="STRING" />
+            <column name="max_file_size"
+                type="NUMERIC" />
+            <column name="created_at" type="DATETIME" />
+            <column
+                name="updated_at" type="DATETIME" />
+
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>
