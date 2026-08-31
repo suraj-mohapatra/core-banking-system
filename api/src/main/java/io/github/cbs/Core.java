@@ -1,25 +1,26 @@
 package io.github.cbs;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Core {
+
+    private static final Logger log = LoggerFactory.getLogger(Core.class);
+
     /**
      * The entry point of the Spring Boot application.
      * <p>
      * This method starts the Spring application context by invoking
-     * {@link SpringApplication#run(Class, String[])} and prints a
-     * startup message to the console indicating that the application has started.
+     * {@link SpringApplication#run(Class, String[])} and logs a startup message
+     * indicating that the application has started.
      *
      * @param args command-line arguments passed to the application
      */
     public static void main(String[] args) {
         SpringApplication.run(Core.class, args);
-        System.out.println("""
-                
-                cbs started ----------------------------------------------------------------------------------------------------------------------------
-                """);
-
+        log.info("cbs started ----------------------------------------------------------------------------------------------------------------------------");
     }
 }
