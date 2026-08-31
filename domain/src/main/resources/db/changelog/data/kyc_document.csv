@@ -1,0 +1,9 @@
+document_code,document_type,name,description,is_active,is_mandatory,priority,validity_period,allowed_file_formats,max_file_size,created_at,updated_at
+PAN_CARD,POI,PAN Card,Permanent Account Number issued by the Government of India,true,true,1,60,"PDF,JPG,PNG",5242880,2026-08-31T00:00:00,2026-08-31T00:00:00
+AADHAAR_CARD,POI,Aadhaar Card,Government-issued identity card for Indian residents,true,true,2,120,"PDF,JPG,PNG",5242880,2026-08-31T00:00:00,2026-08-31T00:00:00
+PASSPORT,POI,Passport,Passport issued by the Government of India,true,true,3,120,"PDF,JPG,PNG",10485760,2026-08-31T00:00:00,2026-08-31T00:00:00
+VOTER_ID,POI,Voter ID Card,Electoral photo identity card issued by the Election Commission,true,false,4,120,"PDF,JPG,PNG",5242880,2026-08-31T00:00:00,2026-08-31T00:00:00
+DRIVING_LICENSE,POI,Driving License,Driving license issued by the regional transport authority,true,false,5,60,"PDF,JPG,PNG",5242880,2026-08-31T00:00:00,2026-08-31T00:00:00
+UTILITY_BILL,POA,Utility Bill,"Recent electricity, water, or gas bill in the applicant name",true,true,1,12,"PDF,JPG,PNG",5242880,2026-08-31T00:00:00,2026-08-31T00:00:00
+BANK_STATEMENT,POA,Bank Statement,Latest bank account statement or passbook copy,true,false,2,12,"PDF,JPG,PNG",5242880,2026-08-31T00:00:00,2026-08-31T00:00:00
+RENT_AGREEMENT,POA,Rent Agreement,Registered or notarized rent agreement with address proof,true,false,3,12,"PDF,JPG,PNG",5242880,2026-08-31T00:00:00,2026-08-31T00:00:00
