@@ -13,7 +13,7 @@ import java.util.Objects;
 @Setter
 @ToString(onlyExplicitlyIncluded = true)
 @RequiredArgsConstructor
-public class KYCDocument {
+public class KycDocumentMaster {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -73,7 +73,7 @@ public class KYCDocument {
         Class<?> oEffectiveClass = object instanceof HibernateProxy ? ((HibernateProxy) object).getHibernateLazyInitializer().getPersistentClass() : object.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        KYCDocument that = (KYCDocument) object;
+        KycDocumentMaster that = (KycDocumentMaster) object;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 

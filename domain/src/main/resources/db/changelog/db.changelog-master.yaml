@@ -17,6 +17,11 @@ databaseChangeLog:
       file: db/changelog/changes/20260126_SYS_DDL_savings_account_01.xml
   - include:
       file: db/changelog/changes/20260525_SYS_DDL_employee_01.xml
+  - include:
+      file: db/changelog/changes/20260831_SYS_DDL_customer_kyc_01.xml
+  - include:
+      file: db/changelog/changes/20260901_SYS_DDL_customer_kyc_document_01.xml
+
 #  -----------------------------------------------------------------------------
 #  -----------------------------------------------------------------------------
   - include:
