@@ -1,7 +1,11 @@
 package io.github.cbs.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -36,9 +40,11 @@ public class ProductMaster {
     private BigDecimal minBalanceRequirement;
 
     @Column(name = "is_checkbook_allowed")
+    @Builder.Default
     private Boolean isCheckbookAllowed = false;
 
     @Column(name = "is_debit_card_allowed")
+    @Builder.Default
     private Boolean isDebitCardAllowed = false;
 
     @Column(name = "min_tenure_months")
@@ -48,6 +54,7 @@ public class ProductMaster {
     private Integer maxTenureMonths;
 
     @Column(name = "is_active", nullable = false)
+    @Builder.Default
     private Boolean isActive = true;
 
     @Column(name = "created_at", updatable = false)
@@ -67,3 +74,5 @@ public class ProductMaster {
         updatedAt = LocalDateTime.now();
     }
 }
+
+// Keep Java defaults aligned with the database defaults added later in Liquibase.
