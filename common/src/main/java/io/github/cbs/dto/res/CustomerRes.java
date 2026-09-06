@@ -16,6 +16,8 @@ public class CustomerRes {
 
     private Long id;
 
+    private String cifNumber;
+
     private String firstName;
 
     private String middleName;
