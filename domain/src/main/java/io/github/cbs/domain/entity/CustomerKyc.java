@@ -21,6 +21,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Represents a customer's KYC record, verification status, and risk details.
+ */
 @Entity
 @Table(name = "customer_kyc", schema = "core")
 @Getter

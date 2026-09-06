@@ -20,6 +20,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Represents a document submitted as part of a customer's KYC verification.
+ */
 @Entity
 @Table(name = "customer_kyc_document", schema = "core")
 @Getter

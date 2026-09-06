@@ -23,6 +23,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Represents a customer deposit account with balance and interest details.
+ */
 @Entity
 @Table(name = "deposit_account", schema = "core")
 @Getter

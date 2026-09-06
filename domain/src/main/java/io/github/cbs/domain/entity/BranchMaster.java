@@ -1,11 +1,24 @@
 package io.github.cbs.domain.entity;
 
-import io.github.cbs.domain.enums.BranchStatus;
-import io.github.cbs.domain.enums.BranchType;
-import jakarta.persistence.*;
-import lombok.Data;
 import java.time.LocalDateTime;
 
+import io.github.cbs.domain.enums.BranchStatus;
+import io.github.cbs.domain.enums.BranchType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+/**
+ * Represents a banking branch and its identifying, contact, and status details.
+ */
 @Entity
 @Table(name = "branch_master", schema = "core")
 @Data

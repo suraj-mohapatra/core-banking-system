@@ -18,6 +18,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Represents a master definition for documents accepted during KYC
+ * verification.
+ */
 @Entity
 @Table(name = "kyc_document_master", schema = "core")
 @Getter

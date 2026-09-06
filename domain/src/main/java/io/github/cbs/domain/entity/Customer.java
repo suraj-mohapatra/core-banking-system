@@ -17,6 +17,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Represents a bank customer and the customer's contact and address details.
+ */
 @Entity
 @Table(name = "customer", schema = "core")
 @Getter

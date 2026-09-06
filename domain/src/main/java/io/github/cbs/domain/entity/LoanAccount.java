@@ -21,6 +21,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Represents a customer loan account and its repayment-related financial
+ * details.
+ */
 @Entity
 @Table(name = "loan_account", schema = "core")
 @Getter

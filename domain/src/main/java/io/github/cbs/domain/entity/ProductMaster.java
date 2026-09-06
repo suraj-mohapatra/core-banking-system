@@ -6,8 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * Entity representing the Product Master.
- * Defines the parameters for different banking products (Savings, Current, Loans).
+ * Represents a banking product and its pricing, balance, and tenure parameters.
  */
 @Entity
 @Table(name = "product_master", schema = "core")

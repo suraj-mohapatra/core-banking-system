@@ -21,6 +21,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Represents a configurable customer type describing the customer's
+ * constitution.
+ */
 @Entity
 @Table(name = "customer_type_master", schema = "core")
 @Getter

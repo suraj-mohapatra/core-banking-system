@@ -3,9 +3,20 @@ package io.github.cbs.domain.entity;
 import io.github.cbs.domain.enums.EmployeeDesignation;
 import io.github.cbs.domain.enums.EmployeeGrade;
 import io.github.cbs.domain.enums.EmployeeStatus;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
+/**
+ * Represents a bank employee, including designation, grade, and employment
+ * status.
+ */
 @Data
 @Entity
 @Table(name = "employee", schema = "core")

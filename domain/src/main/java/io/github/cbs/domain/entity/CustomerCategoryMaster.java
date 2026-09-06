@@ -21,6 +21,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * Represents a configurable customer category used for customer segmentation.
+ */
 @Entity
 @Table(name = "customer_category_master", schema = "core")
 @Getter
