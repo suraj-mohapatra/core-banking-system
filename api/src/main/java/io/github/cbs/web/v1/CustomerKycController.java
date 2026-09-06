@@ -2,6 +2,7 @@ package io.github.cbs.web.v1;
 
 import io.github.cbs.dto.req.CustomerKycReq;
 import io.github.cbs.dto.res.ApiResponse;
+import io.github.cbs.dto.res.CustomerKycDocumentRes;
 import io.github.cbs.dto.res.CustomerKycRes;
 import io.github.cbs.service.CustomerKycService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -9,15 +10,12 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/v1/customer-kyc")
@@ -71,17 +69,38 @@ public class CustomerKycController {
         return null;
     }
 
-    @Operation(summary = "Upload a customer KYC document")
-    @PostMapping("/{customerId}/documents")
-    public Object uploadKycDocument(@PathVariable Long customerId) {
-        return null;
-    }
-
     @Operation(summary = "Delete a customer KYC document")
     @DeleteMapping("/{customerId}/documents/{documentId}")
     public Object deleteKycDocument(
             @PathVariable Long customerId,
             @PathVariable Long documentId) {
         return null;
+    }
+
+    @Operation(summary = "Upload a customer KYC document")
+    @PostMapping(value = "/{customerId}/documents", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ApiResponse<CustomerKycDocumentRes>> uploadKycDocument(
+            @PathVariable Long customerId,
+            @RequestParam("documentCode") String documentCode,
+            @RequestParam("uploadedBy") String uploadedBy,
+            @RequestParam("file") MultipartFile file) throws IOException {
+
+        CustomerKycDocumentRes response = customerKycService.uploadKycDocument(
+                customerId,
+                documentCode,
+                uploadedBy,
+                file.getOriginalFilename(),
+                file.getContentType(),
+                file.getSize(),
+                file.getInputStream()
+        );
+
+        ApiResponse<CustomerKycDocumentRes> apiResponse = ApiResponse.<CustomerKycDocumentRes>builder()
+                .success(true)
+                .message("KYC document uploaded successfully")
+                .data(response)
+                .build();
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(apiResponse);
     }
 }
