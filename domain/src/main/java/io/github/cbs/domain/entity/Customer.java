@@ -39,6 +39,9 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "cif_number", unique = true, length = 20)
+    private String cifNumber;
+
     @Column(name = "first_name", nullable = false, length = 50)
     private String firstName;
 
