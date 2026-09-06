@@ -1,0 +1,67 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="1788196884969-1"
+               author="SURAJ">
+        <createTable schemaName="core"
+                     tableName="kyc_document_master">
+            <column autoIncrement="true"
+                    name="id"
+                    type="INT">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_kyc_document_master"/>
+            </column>
+            <column name="document_code"
+                    type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="document_type"
+                    type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name"
+                    type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description"
+                    type="VARCHAR(500)"/>
+            <column name="is_active"
+                    type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_mandatory"
+                    type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="priority"
+                    type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="validity_period"
+                    type="INT"/>
+            <column name="allowed_file_formats"
+                    type="VARCHAR(200)"/>
+            <column name="max_file_size"
+                    type="BIGINT"/>
+            <column name="created_at"
+                    type="DATETIME(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at"
+                    type="DATETIME(6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1788196884969-2"
+               author="SURAJ">
+        <addUniqueConstraint columnNames="document_code"
+                             constraintName="uc_kyc_document_master_document_code"
+                             schemaName="core"
+                             tableName="kyc_document_master"/>
+    </changeSet>
+
+</databaseChangeLog>

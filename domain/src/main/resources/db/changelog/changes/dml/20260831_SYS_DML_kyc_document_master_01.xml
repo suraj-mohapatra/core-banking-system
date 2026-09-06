@@ -8,8 +8,8 @@
 
     <changeSet id="20260831-SYS-DML-KYC-DOCUMENT-01" author="SURAJ">
         <loadData
-            file="db/changelog/data/kyc_document.csv"
-            tableName="kyc_document"
+            file="db/changelog/data/kyc_document_master.csv"
+            tableName="kyc_document_master"
             schemaName="core"
             separator=","
             encoding="UTF-8">

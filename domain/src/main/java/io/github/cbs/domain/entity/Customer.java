@@ -1,12 +1,21 @@
 package io.github.cbs.domain.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.proxy.HibernateProxy;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
+
+import org.hibernate.proxy.HibernateProxy;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "customer", schema = "core")
@@ -15,18 +24,13 @@ import java.util.Objects;
 @ToString(onlyExplicitlyIncluded = true)
 @RequiredArgsConstructor
 public class Customer implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    //cif number
-
-    //customer type
-
-    //customer category
 
     @Column(name = "first_name", nullable = false, length = 50)
     private String firstName;
@@ -36,8 +40,6 @@ public class Customer implements Serializable {
 
     @Column(name = "last_name", nullable = false, length = 50)
     private String lastName;
-
-    //fullname
 
     @Column(name = "email", nullable = false, unique = true, length = 100)
     private String email;
@@ -62,17 +64,21 @@ public class Customer implements Serializable {
 
 //    @JsonIgnore
 //    private String password;
-
 //    @Transient
 //    private String tempValue;
-
     @Override
     public final boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null) return false;
+        if (this == object) {
+            return true;
+        }
+        if (object == null) {
+            return false;
+        }
         Class<?> oEffectiveClass = object instanceof HibernateProxy ? ((HibernateProxy) object).getHibernateLazyInitializer().getPersistentClass() : object.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
-        if (thisEffectiveClass != oEffectiveClass) return false;
+        if (thisEffectiveClass != oEffectiveClass) {
+            return false;
+        }
         Customer customer = (Customer) object;
         return getId() != null && Objects.equals(getId(), customer.getId());
     }
