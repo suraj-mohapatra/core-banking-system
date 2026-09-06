@@ -2,42 +2,45 @@ package io.github.cbs.service;
 
 import io.github.cbs.domain.entity.Customer;
 import io.github.cbs.domain.repository.CustomerRepository;
+import io.github.cbs.dto.req.CustomerReq;
+import io.github.cbs.dto.res.CustomerRes;
+import io.github.cbs.exception.BusinessException;
+import io.github.cbs.exception.CustomerAlreadyExistsException;
 import io.github.cbs.service.mapper.CustomerMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import io.github.cbs.dto.req.CustomerReq;
-import io.github.cbs.dto.res.CustomerRes;
-
 import java.util.List;
-
 
 @Service
 @RequiredArgsConstructor
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
 
-    final CustomerRepository customerRepository;
-
+    private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
 
     /**
-     * @param req
-     * @return
+     * @param req Customer creation request
+     * @return Created customer response
      */
     @Override
     public CustomerRes createCustomer(CustomerReq req) {
-
-        try {
-            Customer entity = customerMapper.toEntity(req);
-
-            Customer saved = customerRepository.save(entity);
-
-            return customerMapper.toResponse(saved);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        if (customerRepository.existsByEmail(req.getEmail())) {
+            throw new CustomerAlreadyExistsException(
+                    "Customer with email '" + req.getEmail() + "' already exists");
         }
+
+        if (customerRepository.existsByPhoneNumber(req.getPhoneNumber())) {
+            throw new CustomerAlreadyExistsException(
+                    "Customer with phone number '" + req.getPhoneNumber() + "' already exists");
+        }
+
+        Customer entity = customerMapper.toEntity(req);
+        Customer saved = customerRepository.save(entity);
+
+        return customerMapper.toResponse(saved);
     }
 
     /**
@@ -51,12 +54,15 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     /**
-     * @param customerId
-     * @return
+     * @param customerId Customer ID
+     * @return Customer response
      */
     @Override
+    @Transactional(readOnly = true)
     public CustomerRes getCustomerById(Long customerId) {
-        return null;
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new BusinessException("Customer with ID " + customerId + " not found"));
+        return customerMapper.toResponse(customer);
     }
 
     /**
@@ -75,6 +81,5 @@ public class CustomerServiceImpl implements CustomerService {
     public void deactivateCustomer(Long customerId) {
 
     }
-
 
 }

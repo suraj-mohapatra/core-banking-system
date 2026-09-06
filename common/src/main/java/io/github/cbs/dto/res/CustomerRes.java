@@ -1,12 +1,17 @@
 package io.github.cbs.dto.res;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class CustomerRes {
 
     private Long id;
@@ -16,6 +21,10 @@ public class CustomerRes {
     private String middleName;
 
     private String lastName;
+
+    private LocalDate dateOfBirth;
+
+    private String gender;
 
     private String email;
 
@@ -30,5 +39,11 @@ public class CustomerRes {
     private String pinCode;
 
     private String country;
+
+    private Boolean isActive;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 
 }
