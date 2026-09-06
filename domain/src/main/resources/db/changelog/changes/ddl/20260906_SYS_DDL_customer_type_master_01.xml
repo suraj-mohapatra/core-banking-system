@@ -1,0 +1,53 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.31.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="1788668746891-1"
+               author="SURAJ">
+        <createTable schemaName="core"
+                     tableName="customer_type_master">
+            <column autoIncrement="true"
+                    name="id"
+                    type="INT">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="pk_customer_type_master"/>
+            </column>
+            <column name="type_code"
+                    type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_name"
+                    type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description"
+                    type="VARCHAR(500)"/>
+            <column name="is_active"
+                    type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="priority"
+                    type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at"
+                    type="DATETIME(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at"
+                    type="DATETIME(6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1788668746891-2"
+               author="SURAJ">
+        <addUniqueConstraint columnNames="type_code"
+                             constraintName="uc_customer_type_master_type_code"
+                             schemaName="core"
+                             tableName="customer_type_master"/>
+    </changeSet>
+
+</databaseChangeLog>

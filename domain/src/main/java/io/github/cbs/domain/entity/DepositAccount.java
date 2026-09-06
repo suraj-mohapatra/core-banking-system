@@ -1,11 +1,14 @@
 package io.github.cbs.domain.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 import org.hibernate.proxy.HibernateProxy;
 
-import io.github.cbs.domain.enums.CustomerType;
+import io.github.cbs.domain.behaviour.Depositable;
+import io.github.cbs.domain.behaviour.Withdrawable;
+import io.github.cbs.domain.enums.AccountType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -17,37 +20,41 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
-@Table(name = "customer_type_master", schema = "core")
+@Table(name = "deposit_account", schema = "core")
 @Getter
 @Setter
-@ToString(onlyExplicitlyIncluded = true)
-@RequiredArgsConstructor
-public class CustomerTypeMaster {
+@NoArgsConstructor
+public class DepositAccount implements Depositable, Withdrawable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
+
+    @Column(name = "account_number", nullable = false, unique = true, length = 30)
+    private String accountNumber;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "type_code", nullable = false, unique = true, length = 30)
-    private CustomerType typeCode;
+    @Column(name = "account_type", nullable = false, length = 30)
+    private AccountType accountType;
 
-    @Column(name = "type_name", nullable = false, length = 100)
-    private String typeName;
+    @Column(name = "customer_id", nullable = false)
+    private Long customerId;
 
-    @Column(name = "description", length = 500)
-    private String description;
+    @Column(name = "status", nullable = false, length = 30)
+    private String status = "ACTIVE";
 
-    @Column(name = "is_active", nullable = false)
-    private Boolean isActive = true;
+    @Column(name = "currency_code", nullable = false, length = 3)
+    private String currencyCode = "INR";
 
-    @Column(name = "priority", nullable = false)
-    private Integer priority = 0;
+    @Column(name = "opened_at", nullable = false, updatable = false)
+    private LocalDateTime openedAt;
+
+    @Column(name = "closed_at")
+    private LocalDateTime closedAt;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -55,10 +62,31 @@ public class CustomerTypeMaster {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Column(name = "balance", nullable = false, precision = 20, scale = 2)
+    private BigDecimal balance = BigDecimal.ZERO;
+
+    @Column(name = "interest_rate", precision = 7, scale = 4)
+    private BigDecimal interestRate;
+
+    @Column(name = "minimum_balance", precision = 20, scale = 2)
+    private BigDecimal minimumBalance = BigDecimal.ZERO;
+
+    @Override
+    public void withdraw(double amount) {
+        balance = balance.subtract(BigDecimal.valueOf(amount));
+    }
+
+    @Override
+    public void deposit(double amount) {
+        balance = balance.add(BigDecimal.valueOf(amount));
+    }
+
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now();
+        openedAt = openedAt == null ? now : openedAt;
+        createdAt = now;
+        updatedAt = now;
     }
 
     @PreUpdate
@@ -79,7 +107,7 @@ public class CustomerTypeMaster {
         if (thisEffectiveClass != oEffectiveClass) {
             return false;
         }
-        CustomerTypeMaster that = (CustomerTypeMaster) object;
+        DepositAccount that = (DepositAccount) object;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 
